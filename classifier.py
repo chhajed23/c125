@@ -17,7 +17,7 @@ def getPrediction(image):
     image_bw_resize=image_bw.resize((28,28),Image.ANTIALIAS)
     pixel_filter=20
     min_pixel=np.percentile(image_bw_resize,pixel_filter)
-    image_bw_resize_invert=np.CLIP(image_bw_resize-min_pixel,0,255)
+    image_bw_resize_invert=np.clip(image_bw_resize-min_pixel,0,255)
     max_pixel=np.max(image_bw_resize)
     image_bw_resize_invert=np.asarray(image_bw_resize_invert)/max_pixel
     test_sample=np.array(image_bw_resize_invert).reshape(1,784)
